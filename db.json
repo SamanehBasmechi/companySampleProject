@@ -1,0 +1,8 @@
+{
+    "companies": [
+        { "id": 1, "name": "تجارت الکترونیک آگاه", "phone": "02122900182", "type": "Electronics" }
+    ],
+    "products": [
+        { "id": 1, "company_Id": "1", "title": "بازی موبایل" }
+    ]
+}

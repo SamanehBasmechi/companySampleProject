@@ -1,0 +1,22 @@
+.table-box {
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    margin-top: 1em;
+    background: white;
+    .header {
+        border-bottom: 1px solid #eaeaea;
+        padding: 1em 2em;
+    }
+    .body {
+        display: flex;
+        justify-content: space-between;
+        padding: 2em;
+        border-bottom: 1px solid #eaeaea;
+    }
+}
+
+.eye-icon {
+    width: 30px;
+    position: relative;
+    top: 3px;
+    cursor: pointer;
+}

@@ -1,0 +1,36 @@
+<div class="table-box">
+    <div class="header">
+        <b>لیست شرکت ها</b>
+    </div>
+    <div class="body">
+        <table *ngIf="companies.length" class="rwd-table">
+            <tbody>
+                <tr>
+                    <th>ردیف</th>
+                    <th>نام شرکت</th>
+                    <th>شماره تماس</th>
+                    <th>مشاهده محصولات</th>
+                </tr>
+                <tr *ngFor="let company of companies; let i=index">
+                    <td>
+                        {{i+1}}
+                    </td>
+                    <td>
+                        {{company.name}}
+                    </td>
+                    <td>
+                        {{company.phone}}
+                    </td>
+                    <td>
+                        <img class="eye-icon" src="../../../assets/icons/eye.svg" alt="مشاهده محصولات" (click)="onProduct()">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <span *ngIf="!companies.length">
+            داده ای وجود ندارد!
+        </span>
+    </div>
+
+</div>
