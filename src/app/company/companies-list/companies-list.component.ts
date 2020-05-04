@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CompanyService } from '../company.service';
 import { Router } from '@angular/router';
 
@@ -9,24 +9,24 @@ import { Router } from '@angular/router';
 })
 export class CompaniesListComponent implements OnInit {
 
-  companies:any;
+  @Input() companies = [];
 
   constructor(
     private companyService:CompanyService,
     private router:Router) { }
 
   ngOnInit(): void {
-    this.getCompanies();
+    // this.getCompanies();
   }
 
-  getCompanies(){
-    this.companyService.getCompanies().subscribe(
-      resp=>{
-        console.log(resp);
-        this.companies = resp;
-      }
-    )
-  }
+  // getCompanies(){
+  //   this.companyService.getCompanies().subscribe(
+  //     resp=>{
+  //       console.log(resp);
+  //       this.companies = resp;
+  //     }
+  //   )
+  // }
 
   onProduct(){
     this.router.navigate(['/products'])

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CompaniesListComponent } from '../companies-list/companies-list.component';
+import { CompanyService } from '../company.service';
 
 @Component({
   selector: 'app-create-company',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateCompanyComponent implements OnInit {
 
-  constructor() { }
+  companyForm: FormGroup;
+  @Output('getcompaniesAgain') getcompaniesAgain = new EventEmitter();
+
+  constructor(private companyservice: CompanyService) {
+
+    this.companyForm = new FormGroup({
+        name: new FormControl('', Validators.required),
+        phone: new FormControl('', Validators.required),
+        type: new FormControl('', Validators.required)
+      })
+
+  }
 
   ngOnInit(): void {
+  }
+
+  addCompany() {
+    this.companyservice.addCompany(this.companyForm.value).subscribe(
+      resp => {
+        console.log(resp);
+        this.getcompaniesAgain.emit();
+      }
+    )
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="content">
-    <app-create-company></app-create-company>
+    <app-create-company (getcompaniesAgain)='getCompanies()'></app-create-company>
 
-    <app-companies-list></app-companies-list>
+    <app-companies-list [companies]='companies'></app-companies-list>
 </div>
