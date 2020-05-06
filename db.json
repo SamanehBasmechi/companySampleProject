@@ -1,6 +1,25 @@
 {
-    "companies": [
-
-    ],
-    "products": []
+  "companies": [
+    {
+      "name": "تست",
+      "phone": "+981111111111",
+      "type": "لوازم خانگی",
+      "id": 1
+    },
+    {
+      "name": "تست",
+      "phone": "+981111111111",
+      "type": "لوازم خانگی",
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "title": "تست",
+      "date": "2222/22/22",
+      "status": "active",
+      "company_id": "1",
+      "id": 1
+    }
+  ]
 }

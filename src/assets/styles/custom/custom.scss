@@ -26,6 +26,14 @@ small {
     border-bottom: 1px solid #eaeaea;
 }
 
+@media only screen and (max-width: 600px) {
+    .form-body {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #eaeaea;
+    }
+}
+
 .form-footer {
     text-align: left;
     padding: 1em 2em;
