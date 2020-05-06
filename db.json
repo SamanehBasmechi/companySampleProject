@@ -5,17 +5,28 @@
       "name": "تجارت الکترونیک آگاه",
       "phone": "02122900182",
       "type": "لوازم الکترونیکی"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "موبایل",
+      "company_id": 1,
+      "date": "1399/02/11",
+      "status": "active"
     },
     {
-      "name": "",
-      "phone": "",
-      "type": "",
+      "title": "ss",
+      "date": 2323,
+      "status": "active",
+      "company_id": "1",
       "id": 2
     },
     {
-      "name": "",
-      "phone": "",
-      "type": "",
+      "title": "sds",
+      "date": null,
+      "status": "active",
+      "company_id": "1",
       "id": 3
     }
   ]

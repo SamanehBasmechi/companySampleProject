@@ -10,15 +10,15 @@
                     <th>تاریخ تولید محصول</th>
                     <th>وضعیت</th>
                 </tr>
-                <tr>
+                <tr *ngFor="let product of products">
                     <td>
-
+                        {{product.title}}
                     </td>
                     <td>
-
+                        {{product.date}}
                     </td>
                     <td>
-
+                        {{product.status | translatePipe}}
                     </td>
                 </tr>
             </tbody>

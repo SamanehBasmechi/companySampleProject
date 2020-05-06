@@ -1,37 +1,38 @@
-<div class="form">
+<form [formGroup]="productForm" (ngSubmit)="addProduct()">
     <div class="header">
         <b>افزودن محصول شرکت ....</b>
     </div>
-    <div>
 
-        <form class="body">
+    <div class="body">
+        <div class="input-box-body">
+            <label for="product-name">عنوان محصول</label>
+            <input formControlName="title" type="text" id="product-name" placeholder="عنوان محصول...">
+            <small *ngIf="productForm.controls['title'].invalid && (productForm.controls['title'].dirty || productForm.controls['title'].touched)">لطفا عنوان محصول را وارد کنید.</small>
+        </div>
+        <div class="input-box-body">
+            <label for="date">تاریخ تولید</label>
+            <input formControlName="date" dir="ltr" type="number" id="date" placeholder="تاریخ تولید...">
+            <small *ngIf="productForm.controls['date'].invalid && (productForm.controls['date'].dirty || productForm.controls['date'].touched)">لطفا تاریخ تولید را وارد کنید.</small>
+        </div>
+        <div class="radio-box-body">
             <div>
-                <label for="product-name">عنوان محصول</label>
-                <input type="text" id="product-name" placeholder="عنوان محصول...">
+                <span>وضعیت</span>
             </div>
-            <div>
-                <label for="date">تاریخ تولید</label>
-                <input dir="ltr" type="number" id="date" placeholder="تاریخ تولید...">
+            <div class="radio-box">
+                <label class="container">فعال
+                        <input formControlName="status" value="active" type="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                <label class="container">غیرفعال
+                        <input formControlName="status" value="deActive" type="radio">
+                        <span class="checkmark"></span>
+                </label>
             </div>
-            <div>
-                <div>
-                    <span>وضعیت</span>
-                </div>
-                <div class="radio-box">
-                    <label class="container">فعال
-                                <input type="radio" checked="checked" name="radio">
-                                <span class="checkmark"></span>
-                    </label>
-                    <label class="container">غیرفعال
-                                <input type="radio" name="radio">
-                                <span class="checkmark"></span>
-                    </label>
-                </div>
 
-            </div>
-        </form>
+        </div>
     </div>
+
     <div class="footer">
-        <button class="green-btn">افزودن محصول</button>
+        <button type="submit" class="green-btn">افزودن محصول</button>
     </div>
-</div>
+</form>

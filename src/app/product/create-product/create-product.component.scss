@@ -1,4 +1,4 @@
-.form {
+form {
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
     margin-top: 1em;
     background: white;
@@ -11,7 +11,13 @@
         justify-content: space-between;
         padding: 2em;
         border-bottom: 1px solid #eaeaea;
-        div {
+        .input-box-body {
+            flex-grow: 1;
+            padding: 0 1em;
+            display: flex;
+            flex-direction: column;
+        }
+        .radio-box-body {
             flex-grow: 1;
             padding: 0 1em;
         }
@@ -27,4 +33,8 @@
     justify-content: space-between;
     position: relative;
     top: 1em;
+}
+
+small {
+    color: red;
 }

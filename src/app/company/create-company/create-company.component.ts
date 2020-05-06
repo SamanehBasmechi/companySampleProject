@@ -11,7 +11,7 @@ import { CompanyService } from '../company.service';
 export class CreateCompanyComponent implements OnInit {
 
   companyForm: FormGroup;
-  @Output('getcompaniesAgain') getcompaniesAgain = new EventEmitter();
+  @Output('getCompaniesAgain') getCompaniesAgain = new EventEmitter();
 
   constructor(private companyservice: CompanyService) {
 
@@ -27,12 +27,18 @@ export class CreateCompanyComponent implements OnInit {
   }
 
   addCompany() {
-    this.companyservice.addCompany(this.companyForm.value).subscribe(
-      resp => {
-        console.log(resp);
-        this.getcompaniesAgain.emit();
-      }
-    )
+    if(this.companyForm.valid){
+      this.companyservice.addCompany(this.companyForm.value).subscribe(
+        resp => {
+          console.log(resp);
+          this.getCompaniesAgain.emit();
+        }
+      )
+    }
+    else{
+      alert('لطفا تمام فیلدها را پرکنید.')
+    }
+    
   }
 
 }

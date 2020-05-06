@@ -11,25 +11,12 @@ export class CompaniesListComponent implements OnInit {
 
   @Input() companies = [];
 
-  constructor(
-    private companyService:CompanyService,
-    private router:Router) { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
-    // this.getCompanies();
-  }
+  ngOnInit(): void { }
 
-  // getCompanies(){
-  //   this.companyService.getCompanies().subscribe(
-  //     resp=>{
-  //       console.log(resp);
-  //       this.companies = resp;
-  //     }
-  //   )
-  // }
-
-  onProduct(){
-    this.router.navigate(['/products'])
+  onProduct(id) {
+    this.router.navigate(['/products', id])
   }
 
 }
