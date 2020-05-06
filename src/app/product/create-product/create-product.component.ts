@@ -16,7 +16,7 @@ export class CreateProductComponent implements OnInit {
 
   @ViewChild(ProductComponent) ProductComponent: ProductComponent;
   @Output('getProductsAgain') getProductsAgain = new EventEmitter();
-  @Input() company_id;
+  @Input() company;
   productForm: FormGroup;
   config = {
     drops: 'down',
@@ -31,16 +31,17 @@ export class CreateProductComponent implements OnInit {
       title: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required),
       status: new FormControl('active', Validators.required),
-      company_id: new FormControl('', Validators.required),
+      company_id: new FormControl(''),
     })
   }
 
   addProduct() {
     if (this.productForm.valid) {
-      this.productForm.controls['company_id'].setValue(this.company_id);
+      this.productForm.controls['company_id'].setValue(this.company.id);
       this.productService.addProduct(this.productForm.value).subscribe(
         resp => {
           this.getProductsAgain.emit();
+          this.productForm.reset();
         }
       )
     }

@@ -9,14 +9,15 @@ import { Router } from '@angular/router';
 })
 export class CompaniesListComponent implements OnInit {
 
-  @Input() companies = [];
+  @Input() companies;
+  @Input() loading;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void { }
 
-  onProduct(id) {
-    this.router.navigate(['/products', id])
+  onProduct(company) {
+    this.router.navigate(['/products', company.id , company.name])
   }
 
 }

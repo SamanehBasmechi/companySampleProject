@@ -9,8 +9,9 @@ import { ProductService } from './product.service';
 })
 export class ProductComponent implements OnInit {
 
-  products;
-  company_id;
+  products :any = [];
+  company : {id:'' , name:''};
+  loading = true;
 
   constructor(
     private ActivatedRoute: ActivatedRoute,
@@ -19,16 +20,19 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.ActivatedRoute.params.subscribe(
       resp => {
-        this.company_id = resp.company_id;
+        this.company = {id:resp.company_id , name:resp.company_name};
         this.getProducts();
       }
     )
   }
 
   getProducts() {
-    this.productService.getProducts(this.company_id).subscribe(
+    this.loading = true;
+    this.productService.getProducts(this.company.id).subscribe(
       products => {
         this.products = products;
+        this.loading = false;
+        console.log(this.products)
       }
     )
 

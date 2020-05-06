@@ -1,6 +1,6 @@
 <form [formGroup]="productForm" (ngSubmit)="addProduct()">
     <div class="header">
-        <b>افزودن محصول شرکت ....</b>
+        <b>افزودن محصول شرکت {{company.name}}</b>
     </div>
 
     <div class="body">
@@ -11,7 +11,7 @@
         </div>
         <div class="input-box-body">
             <label for="date">تاریخ تولید</label>
-            <input formControlName="date" dir="ltr" type="number" id="date" placeholder="تاریخ تولید...">
+            <input formControlName="date" mask="XXXX/XX/XX" [dropSpecialCharacters]="false" [showMaskTyped]="true" dir="ltr" id="date" placeholder="تاریخ تولید...">
             <small *ngIf="productForm.controls['date'].invalid && (productForm.controls['date'].dirty || productForm.controls['date'].touched)">لطفا تاریخ تولید را وارد کنید.</small>
         </div>
         <div class="radio-box-body">
@@ -19,6 +19,7 @@
                 <span>وضعیت</span>
             </div>
             <div class="radio-box">
+
                 <label class="container">فعال
                         <input formControlName="status" value="active" type="radio">
                         <span class="checkmark"></span>
@@ -27,7 +28,9 @@
                         <input formControlName="status" value="deActive" type="radio">
                         <span class="checkmark"></span>
                 </label>
+
             </div>
+            <small style="position:relative;top:0.75em" *ngIf="productForm.controls['status'].invalid">لطفا وضعیت محصول را وارد کنید.</small>
 
         </div>
     </div>

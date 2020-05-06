@@ -1,23 +1,16 @@
+@import '../../../assets/styles/custom/custom.scss';
 form {
-    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
-    margin-top: 1em;
-    background: white;
+    @extend .form;
     .header {
-        border-bottom: 1px solid #eaeaea;
-        padding: 1em 2em;
+        @extend .form-header;
     }
     .body {
-        display: flex;
-        justify-content: space-between;
-        padding: 2em;
-        border-bottom: 1px solid #eaeaea;
+        @extend .form-body;
         div {
-            flex-grow: 1;
-            padding: 0 1em;
+            @extend .form-body-child-box;
         }
     }
     .footer {
-        text-align: left;
-        padding: 1em 2em;
+        @extend .form-footer;
     }
 }

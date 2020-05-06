@@ -8,14 +8,18 @@ import { ProductComponent } from './product.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
+
 @NgModule({
-  declarations: [CreateProductComponent, ProductsListComponent,ProductComponent],
+  declarations: [CreateProductComponent, ProductsListComponent, ProductComponent],
   imports: [
     CommonModule,
     ProductRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot(options)
   ]
 })
 export class ProductModule { }

@@ -1,0 +1,39 @@
+small {
+    color: red;
+    font-size: 12px;
+}
+
+.content {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.form {
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    margin-top: 1em;
+    background: white;
+}
+
+.form-header {
+    border-bottom: 1px solid #eaeaea;
+    padding: 1em 2em;
+}
+
+.form-body {
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.form-footer {
+    text-align: left;
+    padding: 1em 2em;
+}
+
+.form-body-child-box {
+    flex-grow: 1;
+    padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+}

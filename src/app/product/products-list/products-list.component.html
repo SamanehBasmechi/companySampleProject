@@ -1,9 +1,10 @@
 <div class="table-box">
     <div class="header">
-        <b>لیست محصولات</b>
+        <b>لیست محصولات شرکت {{company_name}}</b>
     </div>
     <div class="body">
-        <table class="table">
+
+        <table *ngIf="products.length && !loading" class="table">
             <tbody>
                 <tr>
                     <th>عنوان محصول</th>
@@ -23,5 +24,10 @@
                 </tr>
             </tbody>
         </table>
+
+        <span *ngIf="!products.length && !loading">محصولی وجود ندارد.</span>
+
+        <app-loading *ngIf="loading"></app-loading>
     </div>
+
 </div>

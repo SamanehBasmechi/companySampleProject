@@ -3,7 +3,7 @@
         <b>لیست شرکت ها</b>
     </div>
     <div class="body">
-        <table *ngIf="companies.length" class="table">
+        <table *ngIf="companies.length && !loading" class="table">
             <tbody>
                 <tr>
                     <th>ردیف</th>
@@ -18,19 +18,19 @@
                     <td>
                         {{company.name}}
                     </td>
+                    <td style="direction:ltr!important"> {{company.phone}} </td>
                     <td>
-                        {{company.phone}}
-                    </td>
-                    <td>
-                        <img class="eye-icon" src="../../../assets/icons/eye.svg" alt="مشاهده محصولات" (click)="onProduct(company.id)">
+                        <img class="eye-icon" src="../../../assets/icons/eye.svg" alt="مشاهده محصولات" (click)="onProduct(company)">
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <span *ngIf="!companies.length">
-            داده ای وجود ندارد!
+        <span *ngIf="!companies.length && !loading ">
+         شرکتی وجود ندارد!
         </span>
+
+        <app-loading *ngIf="loading"></app-loading>
     </div>
 
 </div>

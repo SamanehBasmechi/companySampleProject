@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { CompaniesListComponent } from '../companies-list/companies-list.component';
 import { CompanyService } from '../company.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class CreateCompanyComponent implements OnInit {
     this.companyForm = new FormGroup({
         name: new FormControl('', Validators.required),
         phone: new FormControl('', Validators.required),
-        type: new FormControl('', Validators.required)
+        type: new FormControl('محصولات غدایی', Validators.required)
       })
 
   }
@@ -28,15 +27,18 @@ export class CreateCompanyComponent implements OnInit {
 
   addCompany() {
     if(this.companyForm.valid){
+      this.companyForm.patchValue({
+        phone:['+98',this.companyForm.controls['phone'].value].join('')
+      })
       this.companyservice.addCompany(this.companyForm.value).subscribe(
         resp => {
-          console.log(resp);
           this.getCompaniesAgain.emit();
+          this.companyForm.reset();
         }
       )
     }
     else{
-      alert('لطفا تمام فیلدها را پرکنید.')
+      alert('لطفا تمام فیلدها را پرکنید.');
     }
     
   }

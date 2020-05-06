@@ -1,40 +1,24 @@
+@import '../../../assets/styles/custom/custom.scss';
 form {
-    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
-    margin-top: 1em;
-    background: white;
+    @extend .form;
     .header {
-        border-bottom: 1px solid #eaeaea;
-        padding: 1em 2em;
+        @extend .form-header;
     }
     .body {
-        display: flex;
-        justify-content: space-between;
-        padding: 2em;
-        border-bottom: 1px solid #eaeaea;
+        @extend .form-body;
         .input-box-body {
-            flex-grow: 1;
-            padding: 0 1em;
-            display: flex;
-            flex-direction: column;
+            @extend .form-body-child-box;
         }
         .radio-box-body {
             flex-grow: 1;
             padding: 0 1em;
+            .radio-box {
+                display: flex;
+                justify-content: space-between;
+            }
         }
     }
     .footer {
-        text-align: left;
-        padding: 1em 2em;
+        @extend .form-footer;
     }
-}
-
-.radio-box {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    top: 1em;
-}
-
-small {
-    color: red;
 }

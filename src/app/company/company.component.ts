@@ -9,17 +9,20 @@ import { CompanyService } from './company.service';
 export class CompanyComponent implements OnInit {
 
   companies: any = [];
-  constructor(private companyService:CompanyService) { }
+  loading = true;
+  constructor(private companyService: CompanyService) { }
 
   ngOnInit(): void {
     this.getCompanies();
   }
 
-   getCompanies(){
+  getCompanies() {
+    this.loading = true;
     this.companyService.getCompanies().subscribe(
-      resp=>{
+      resp => {
         console.log(resp);
         this.companies = resp;
+        this.loading = false;
       }
     )
   }

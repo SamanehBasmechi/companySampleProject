@@ -8,18 +8,21 @@
         <div>
             <label for="company-name">نام شرکت</label>
             <input type="text" id="company-name" placeholder="نام شرکت..." formControlName="name">
+            <small *ngIf="companyForm.controls['name'].invalid && (companyForm.controls['name'].dirty || companyForm.controls['name'].touched)">لطفا نام شرکت را وارد کنید.</small>
         </div>
         <div>
             <label for="phone">شماره تماس</label>
-            <input dir="ltr" type="number" id="phone" placeholder="شماره تماس شرکت..." formControlName="phone">
+            <input style="direction:ltr!important" mask="(00) 00 00 00 00" prefix="+98" [showMaskTyped]="true" id="phone" placeholder="شماره تماس شرکت..." formControlName="phone">
+            <small *ngIf="companyForm.controls['phone'].invalid && (companyForm.controls['phone'].dirty || companyForm.controls['phone'].touched)">لطفا شماره تماس شرکت را وارد کنید.</small>
         </div>
         <div>
             <label for="type">نوع</label>
             <select id="type" formControlName="type">
-                    <option value="محصولات غذایی">محصولات غدایی</option>
-                    <option value="لوازم خانگی">لوازم خانگی</option>
-                    <option value="لوازم الکترونیکی">لوازم الکترونیکی</option>
+                <option value="محصولات غذایی">محصولات غدایی</option>
+                <option value="لوازم خانگی">لوازم خانگی</option>
+                <option value="لوازم الکترونیکی">لوازم الکترونیکی</option>
             </select>
+            <small *ngIf="companyForm.controls['type'].invalid">لطفا نوع فعالیت را انتخاب کنید.</small>
         </div>
     </div>
 

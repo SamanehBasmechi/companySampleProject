@@ -19,6 +19,9 @@
     "@angular/platform-browser": "~9.1.4",
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
+    "@danaboy/ng-persian-date-picker": "^2.2.91",
+    "jalali-moment": "^3.3.3",
+    "ngx-mask": "^9.0.2",
     "rxjs": "~6.5.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
